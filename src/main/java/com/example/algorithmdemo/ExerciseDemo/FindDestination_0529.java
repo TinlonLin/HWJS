@@ -53,7 +53,7 @@ public class FindDestination_0529 {
         for (int i = 1; i < len/2; i++) {
             /** 走的步数，第一步必须走 */
             int step= 1;
-            set.add(getStep(i,i))
+            set.add(getStep(i,i));
 
         }
         System.out.println(set.first());
