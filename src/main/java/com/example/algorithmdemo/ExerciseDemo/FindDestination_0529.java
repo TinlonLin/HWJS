@@ -1,12 +1,6 @@
 package com.example.algorithmdemo.ExerciseDemo;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
-import com.sun.xml.internal.ws.api.message.stream.InputStreamMessage;
-import sun.reflect.generics.tree.Tree;
-
-import java.util.Scanner;
 import java.util.TreeSet;
-import java.util.logging.Level;
 
 /**
  * @author: TinlonLin
