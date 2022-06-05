@@ -1,7 +1,5 @@
 package com.example.algorithmdemo.ExerciseDemo;
 
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -26,33 +24,56 @@ import java.util.Scanner;
  * 2.输入的第2到n+1行为二维矩阵信息 行内元素边角逗号分割
  * 输出描述
  * 矩阵的最大值
+输入：
+5
+1,0,0,0,1
+0,0,0,1,1
+0,1,0,1,0
+1,0,0,1,1
+1,0,1,0,1
+输出：
+122
  * @Version: V-1.0
  */
 public class MaxOfMartrix_0602 {
 
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = Integer.parseInt(in.nextLine());
-        int res = 0;
+        Scanner sc = new Scanner(System.in);
+        //行数、列数
+        int n = Integer.parseInt(sc.nextLine());
+        //每行最大值
+        int rowMax = 0;
+        //矩阵最大值
+        int matrixMax = 0;
+        //循环n行,调用getRowMax获取每一行最大值，并累加
         for (int i = 0; i < n; i++) {
-            LinkedList<Integer> ints = new LinkedList<>();
-            Arrays.stream(in.nextLine().split(","))
-                    .forEach(x -> ints.add(Integer.parseInt(x)));
-            int max = Integer.MIN_VALUE;
-            for (int j = 0; j < n; j++) {
-                ints.addLast(ints.remove(0));
-
-                String binInt = ints.toString()
-                        .replaceAll("\\W+", "");
-
-                int sum = Integer.parseInt(binInt, 2);
-                if (sum > max) max = sum;
-            }
-            res += max;
+            //先求每一行元素的最大值，再累加获取矩阵的最大值
+            String[] matrixArr = sc.nextLine().split(",");
+            matrixMax += getRowMax(matrixArr);
         }
-        System.out.println(res);
-        in.close();
+        System.out.println(matrixMax);
+
+    }
+
+    private static int getRowMax(String[] matrixArr) {
+        //拼接整体移动0~n-1位的字符串，找出其中的最大值
+        int rowMax = 0;
+        //移动的位数
+        for (int i = 0; i < matrixArr.length; i++) {
+            StringBuilder builder = new StringBuilder();
+            //设定移动方向为向右，先拼接右部分
+            for (int j = i; j < matrixArr.length; j++) {
+                builder.append(matrixArr[j]);
+            }
+            //再拼接左边
+            for (int k = 0; k < i; k++) {
+                builder.append(matrixArr[k]);
+            }
+            //调用jdk方法计算二进制串的十进制值，并比较每种组合的值，获取每一行的最大值
+            rowMax = Math.max(rowMax, Integer.parseInt(builder.toString(), 2));
+        }
+        return rowMax;
     }
 
 
