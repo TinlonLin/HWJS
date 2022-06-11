@@ -35,7 +35,6 @@ public class FindDestination_0529 {
     String str2 = "1 2 3 7 1 5 9 3 2 1";
     findMinStep(str2);
 
-
     }
 
     private static void findMinStep(String str) {

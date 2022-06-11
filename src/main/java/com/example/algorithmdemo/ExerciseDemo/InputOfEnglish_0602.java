@@ -1,7 +1,6 @@
 package com.example.algorithmdemo.ExerciseDemo;
 
 import java.util.TreeSet;
-import java.util.logging.Level;
 
 /**
  * @author: TinlonLin
