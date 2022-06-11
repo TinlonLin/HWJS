@@ -31,18 +31,18 @@ import java.util.Scanner;
 public class SimilarHeight_0523 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        sc.close();
         /** 小明身高 和 其他人数字符串*/
         String[] h_n = sc.nextLine().split(" ");
-        int h = Integer.valueOf(h_n[0]);
+        int h = Integer.parseInt(h_n[0]);
         /** 其他同学人数 */
-        int n = Integer.valueOf(h_n[1]);
+        int n = Integer.parseInt(h_n[1]);
         /** 其他同学身高字符串 */
         String[] hStr = sc.nextLine().split(" ");
+        sc.close();
         /** 将其他身高转为int型 */
         int[] H = new int[n];
         for (int i = 0; i < hStr.length; i++) {
-            H[i] = Integer.valueOf(hStr[i]);
+            H[i] = Integer.parseInt(hStr[i]);
         }
         /** 计算差值的绝对值 */
         int[] absDiffer = new int[n];
@@ -60,20 +60,23 @@ public class SimilarHeight_0523 {
         }
         /** 遍历差值绝对值数组 */
         for (int i = 0; i < n; i++) {
-            if (Hlist.contains(h-absDiffer[i]) && Hlist.contains(h-absDiffer[i])) {
+            if (Hlist.contains(h - absDiffer[i]) && Hlist.contains(h - absDiffer[i])) {
                 newH[i] = h - absDiffer[i];
-                newH[i + 1] = h +absDiffer[i];
+                newH[i + 1] = h + absDiffer[i];
                 i++;
-            } else if (Hlist.contains(h-absDiffer[i]) && !Hlist.contains(h-absDiffer[i])) {
+            } else if (Hlist.contains(h - absDiffer[i]) && !Hlist.contains(h - absDiffer[i])) {
                 newH[i] = h - absDiffer[i];
-            } else if (!Hlist.contains(h-absDiffer[i]) && Hlist.contains(h-absDiffer[i])) {
+            } else if (!Hlist.contains(h - absDiffer[i]) && Hlist.contains(h - absDiffer[i])) {
                 newH[i] = h - absDiffer[i];
             }
         }
 
+        //拼接并输出结果
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < n; i++) {
-            System.out.print(newH[i] + " ");
+            builder.append(newH[i]).append(" ");
         }
+        System.out.println(builder.substring(0, builder.length() - 1).toString());
 
     }
 }
