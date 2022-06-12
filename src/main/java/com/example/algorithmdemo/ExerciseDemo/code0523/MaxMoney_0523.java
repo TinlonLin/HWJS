@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo;
+package com.example.algorithmdemo.ExerciseDemo.code0523;
 
 import java.util.Arrays;
 import java.util.Scanner;

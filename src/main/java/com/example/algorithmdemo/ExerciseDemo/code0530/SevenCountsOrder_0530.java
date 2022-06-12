@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo;
+package com.example.algorithmdemo.ExerciseDemo.code0530;
 
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ import java.util.Scanner;
  * 输出：
  * 0 2 0 1 0
  */
-public class SevenCountsOrder_0529 {
+public class SevenCountsOrder_0530 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

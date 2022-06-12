@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo;
+package com.example.algorithmdemo.ExerciseDemo.code0603;
 
 import java.util.Scanner;
 
@@ -35,7 +35,7 @@ import java.util.Scanner;
 122
  * @Version: V-1.0
  */
-public class MaxOfMartrix_0602 {
+public class MaxOfMartrix_0603 {
 
 
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo;
+package com.example.algorithmdemo.ExerciseDemo.code0603;
 
 /**
  * @author: TinlonLin
@@ -23,6 +23,6 @@ package com.example.algorithmdemo.ExerciseDemo;
 1579
  * @Version: V-1.0
  */
-public class MaxSumOfMatrix {
+public class MaxSumOfMatrix_0603 {
 
 }

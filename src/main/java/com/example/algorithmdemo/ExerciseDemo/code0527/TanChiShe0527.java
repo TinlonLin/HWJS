@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo;
+package com.example.algorithmdemo.ExerciseDemo.code0527;
 
 import java.util.LinkedList;
 import java.util.Scanner;

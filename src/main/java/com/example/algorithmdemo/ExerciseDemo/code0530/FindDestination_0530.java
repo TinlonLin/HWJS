@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo;
+package com.example.algorithmdemo.ExerciseDemo.code0530;
 
 import java.util.TreeSet;
 
@@ -24,7 +24,7 @@ import java.util.TreeSet;
  * 给定一个正整数数组，最大为100个成员，从第一个成员开始，走到数组最后一个成员最少的步骤数。
  * 第一步必须从第一元素开始，1<=步长<len/2, 第二步开始以所在成员的数字走相应的步数，如果目标不可达返回-1，只输出最少的步骤数。
  */
-public class FindDestination_0529 {
+public class FindDestination_0530 {
     private static int[] input = null;
     private static int step = 0;
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo;
+package com.example.algorithmdemo.ExerciseDemo.code0603;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ import java.util.Scanner;
 0
  * @Version: V-1.0
  */
-public class HappyWeekend_0602 {
+public class HappyWeekend_0603 {
 
         public static int endX;     //餐厅横坐标
         public static int endY;     //餐厅纵坐标
