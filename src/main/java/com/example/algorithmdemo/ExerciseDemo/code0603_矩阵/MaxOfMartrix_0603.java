@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo.code0603;
+package com.example.algorithmdemo.ExerciseDemo.code0603_矩阵;
 
 import java.util.Scanner;
 

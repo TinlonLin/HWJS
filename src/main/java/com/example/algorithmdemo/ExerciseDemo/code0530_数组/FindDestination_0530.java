@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo.code0530;
+package com.example.algorithmdemo.ExerciseDemo.code0530_数组;
 
 import java.util.TreeSet;
 

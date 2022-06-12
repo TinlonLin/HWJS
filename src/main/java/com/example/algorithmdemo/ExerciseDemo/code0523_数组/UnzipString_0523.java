@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo.code0523;
+package com.example.algorithmdemo.ExerciseDemo.code0523_数组;
 
 import java.util.Map;
 import java.util.Scanner;

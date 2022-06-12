@@ -1,4 +1,4 @@
-package com.example.algorithmdemo.ExerciseDemo.code0520;
+package com.example.algorithmdemo.ExerciseDemo.code0520_数组;
 
 import java.util.Scanner;
 

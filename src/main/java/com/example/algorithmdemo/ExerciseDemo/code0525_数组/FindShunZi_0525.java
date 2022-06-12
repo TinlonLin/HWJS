@@ -1,9 +1,8 @@
-package com.example.algorithmdemo.ExerciseDemo.code0525;
+package com.example.algorithmdemo.ExerciseDemo.code0525_数组;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.TreeSet;
 
 /**
  * @author: TinlonLin
