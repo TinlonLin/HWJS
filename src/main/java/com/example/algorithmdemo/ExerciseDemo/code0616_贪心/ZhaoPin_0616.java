@@ -1,5 +1,6 @@
 package com.example.algorithmdemo.ExerciseDemo.code0616_贪心;
 
+import java.time.chrono.IsoChronology;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -74,26 +75,34 @@ public class ZhaoPin_0616 {
             String[] s_eArr = s.split(" ");
             singleList.add(Integer.parseInt(s_eArr[0]));
             singleList.add(Integer.parseInt(s_eArr[1]));
+            if (!totalSEList.contains(singleList) && !singleList.isEmpty()) {
+                totalSEList.add(singleList);
+            }
             totalSEList.add(singleList);
         }
         //totalList按照开始时间升序排列
         totalSEList.sort(new Comparator<List<Integer>>() {
             @Override
             public int compare(List<Integer> o1, List<Integer> o2) {
-                return o1.get(0) - o2.get(0);
+                if (o1.get(1).equals(o2.get(1))) {
+                    return o1.get(0) - o1.get(0);
+                }
+                return o1.get(1) - o2.get(1);
             }
         });
         //需要面试官数量,面试场数>=1
         int count = 1;
+        int time = 1;
         //如果当前面试的结束时间大于下场面试的开始时间，需要新增一名面试官
-        for (int i = 1; i < n; i++) {
-            int end = totalSEList.get(0).get(1);
+        for (int i = 0; i < n - 1; i++) {
+            int preEnd = totalSEList.get(i).get(1);
             for (int j = i+1; j < n; j++) {
-                if (end > totalSEList.get(j).get(0)) {
+                int nextStart = totalSEList.get(j).get(0);
+                if (time < m) {
+                    time++;
+                } else if (time == m) {
                     count++;
-                }
-                if (i >= m) {
-                    count++;
+                    time = 1;
                 }
             }
         }
