@@ -8,7 +8,8 @@ import java.util.Scanner;
  * @Date: 2022/5/22 22:08
  * @ClassName: ContinuousSequence
  * @Desc: https://blog.csdn.net/qq_41821422/article/details/123885977
- * 求解连续数列：已知连续正整数数列{K}=K1,K2,K3…Ki的各个数相加之和为S，i=N(0<S<100000,0<N<100000),求此数列K。
+ * 求解连续数列
+ * 已知连续正整数数列{K}=K1,K2,K3…Ki的各个数相加之和为S，i=N(0<S<100000,0<N<100000),求此数列K。
  * 输入描述:
  * 输入包含两个参数，1)连续正整数数列和S，2)数列里数的个数N。
  * 输出描述:

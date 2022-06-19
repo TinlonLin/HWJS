@@ -72,11 +72,6 @@ public class HuoGuo_0617 {
                 }
             }
 
-            // 遍历输出结果
-//			for (int a : arrCount) {
-//				System.out.println(a);
-//			}
-
             System.out.println(count);
         }
     }
