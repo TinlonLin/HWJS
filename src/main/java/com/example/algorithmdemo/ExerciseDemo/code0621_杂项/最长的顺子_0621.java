@@ -46,7 +46,7 @@ public class 最长的顺子_0621 {
                 cardList.add(getCardValue(curCardArr[i]));
             }
         }
-        String[] passCardArr = curCardStr.split("-");
+        String[] passCardArr = passCardStr.split("-");
         for (int i = 0; i < passCardArr.length; i++) {
             if (!"B".equals(curCardArr[i]) && !"C".equals(curCardArr[i]) && !"2".equals(curCardArr[i])){
                 cardList.add(getCardValue(passCardArr[i]));
@@ -91,8 +91,8 @@ public class 最长的顺子_0621 {
                 List<Integer> singleList = new ArrayList<>();
                 for (int i = start; i <= end; i++) {
                     singleList.add(remainCardList.get(i));
-                    chainList.add(singleList);
                 }
+                chainList.add(singleList);
             }
             if (end < remainCardList.size() -1) {
                 //继续寻找以当前start开头的顺子
@@ -108,7 +108,6 @@ public class 最长的顺子_0621 {
         if (chainList.size() == 0) {
             System.out.println("NO-CHAIN");
         } else {
-
             chainList.sort(new Comparator<List<Integer>>() {
                 @Override
                 public int compare(List<Integer> o1, List<Integer> o2) {
