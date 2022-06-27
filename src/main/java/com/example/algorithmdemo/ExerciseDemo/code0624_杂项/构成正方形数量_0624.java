@@ -77,13 +77,15 @@ public class 构成正方形数量_0624 {
             for (int j = i + 1; j < 4; j++) {
                 int x = list.get(i)[0] - list.get(j)[0];
                 int y = list.get(i)[1] - list.get(j)[1];
-                int len = x * x + y * y;    //求四个坐标六个向量的长度
+                //求四个坐标六个向量的长度
+                int len = x * x + y * y;
                 temp = len;
                 map.put(len, map.getOrDefault(len, 0) + 1);
             }
         }
 
-        if (map.size() == 2 && (map.get(temp) == 2 || map.get(temp) == 4)) {    //六条向量有四条相等且另外两条也相等则构成正方形
+        //六条向量有四条相等且另外两条也相等则构成正方形
+        if (map.size() == 2 && (map.get(temp) == 2 || map.get(temp) == 4)) {
             return true;
         }
 
