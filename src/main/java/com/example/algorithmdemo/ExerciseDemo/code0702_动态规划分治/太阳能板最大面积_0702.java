@@ -1,5 +1,7 @@
 package com.example.algorithmdemo.ExerciseDemo.code0702_动态规划分治;
 
+import java.util.Scanner;
+
 /**
  * @author: TinlonLin
  * @email: tilolin@qq.com
@@ -38,11 +40,36 @@ package com.example.algorithmdemo.ExerciseDemo.code0702_动态规划分治;
 面积为25
 任取其他两根支柱所能获得的面积都小于25 所以最大面积为25。
 
+思路分析
+10米高支柱和5米高支柱之间宽度为5，柱子的高度是无序的，所以宽等于高支柱的高减去低支柱的高。
+高度取小的支柱高度。
+任取其他两根支柱所能获得的面积，取其中最大的。
+
  * @date: 2022/6/21 11:21 下午
  * @version: V-1.0
  */
 public class 太阳能板最大面积_0702 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] heightStrArr = sc.nextLine().split(",");
+        long[] heightArr = new long[heightStrArr.length];
+        for (int i = 0; i < heightArr.length; i++) {
+            heightArr[i] = Long.parseLong(heightStrArr[i]);
+        }
+        getMaxArea(heightArr);
+    }
 
+    private static void getMaxArea(long[] heightArr) {
+        long maxArea = 0;
+        for (int i = 0; i < heightArr.length; i++) {
+            for (int j = 0; j < heightArr.length; j++) {
+                //高取短柱子的长度
+                long height = Math.min(heightArr[i],heightArr[j]);
+                //宽度取长短柱子之差
+                long width = Math.abs(heightArr[i] - heightArr[j]);
+                maxArea = Math.max(maxArea,height * width);
+            }
+        }
+        System.out.println(maxArea);
     }
 }
