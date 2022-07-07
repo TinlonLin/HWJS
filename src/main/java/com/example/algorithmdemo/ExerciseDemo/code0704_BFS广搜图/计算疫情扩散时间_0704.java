@@ -1,5 +1,10 @@
 package com.example.algorithmdemo.ExerciseDemo.code0704_BFS广搜图;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
 /**
  * @author: TinlonLin
  * @email: tilolin@qq.com
@@ -32,5 +37,67 @@ package com.example.algorithmdemo.ExerciseDemo.code0704_BFS广搜图;
  * @version: V-1.0
  */
 public class 计算疫情扩散时间_0704 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] numStrArr = sc.nextLine().split(",");
+        int[] nums = new int[numStrArr.length];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = Integer.parseInt(numStrArr[i]);
+        }
+        spreadDay(nums);
+    }
+
+    /**
+     *  //bfs 方式，结束条件 Arrays.stream(nums).sum() == nums.length
+     *
+     */
+    public static void spreadDay(int[] nums){
+        //初始化
+        int n = (int) Math.sqrt(nums.length);
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 1) {
+                queue.offer(i);
+            }
+        }
+        if(Arrays.stream(nums).sum() == nums.length || Arrays.stream(nums).sum() == 0){
+            System.out.println(-1);;
+            return;
+        }
+        int day = 0;
+        //开始扩散
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            //判断是否已全部感染
+            if(Arrays.stream(nums).sum() == nums.length){
+                System.out.println(day);
+                return;
+            }
+            for(int i = 0; i < size; i++){
+                //取得当前感染的区域
+                int index = queue.poll();
+                //感染 上下左右对应下标的区域
+                spread(queue, index-n, nums);
+                spread(queue, index-1, nums);
+                spread(queue, index+1, nums);
+                spread(queue, index+n, nums);
+            }
+            day++;
+        }
+        System.out.println(day);;
+    }
+
+    /**
+     * 感染扩散
+     * @param queue
+     * @param index
+     * @param nums
+     */
+    public static void spread(Queue<Integer> queue, int index, int[] nums){
+        if(index >= 0 && index < nums.length && nums[index] == 0) {
+            nums[index] = 1;
+            queue.offer(index);
+        }
+    }
 
 }
