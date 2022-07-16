@@ -13,5 +13,4 @@ package com.example.algorithmdemo.ExerciseDemo.code0712_进制转换枚举;
  * @version: V-1.0
  */
 public class 工号不够用了怎么办_0712 {
-
 }

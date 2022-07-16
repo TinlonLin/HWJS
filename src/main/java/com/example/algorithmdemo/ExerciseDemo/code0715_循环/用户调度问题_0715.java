@@ -1,10 +1,6 @@
 package com.example.algorithmdemo.ExerciseDemo.code0715_循环;
 
-import org.w3c.dom.ls.LSInput;
-
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
