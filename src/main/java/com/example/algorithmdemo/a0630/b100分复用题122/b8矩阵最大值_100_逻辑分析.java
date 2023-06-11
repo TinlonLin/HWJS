@@ -1,5 +1,10 @@
 package com.example.algorithmdemo.a0630.b100分复用题122;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
 /**
  * @author: TinlonLin
  * @email: tilolin@qq.com
@@ -37,41 +42,39 @@ package com.example.algorithmdemo.a0630.b100分复用题122;
 第五行向右整体循环移动1位，得到本行的最大值[1,1,0,1,0]，二进制值为11010，十进制值为26。
 因此，矩阵的最大值为122。
 
-
-public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
-
-int n = Integer.parseInt(sc.nextLine());
-
-int ans = 0;
-
-for (int i = 0; i < n; i++) {
-LinkedList<Integer> dq =
-Arrays.stream(sc.nextLine().split(","))
-.map(Integer::parseInt)
-.collect(Collectors.toCollection(LinkedList::new));
-
-int max = getVal(dq);
-
-for (int j = 1; j < n; j++) {
-dq.addFirst(dq.removeLast());
-max = Math.max(max, getVal(dq));
-}
-
-ans += max;
-}
-
-System.out.println(ans);
-}
-
-public static int getVal(LinkedList<Integer> dq) {
-StringBuilder sb = new StringBuilder();
-for (Integer v : dq) sb.append(v);
-return Integer.parseInt(sb.toString(), 2);
-}
-
  * @date: 2023/6/4 8:48
  * @version: V-1.0
  */
 public class b8矩阵最大值_100_逻辑分析 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = Integer.parseInt(sc.nextLine());
+
+        int ans = 0;
+
+        for (int i = 0; i < n; i++) {
+            LinkedList<Integer> dq =
+                    Arrays.stream(sc.nextLine().split(","))
+                            .map(Integer::parseInt)
+                            .collect(Collectors.toCollection(LinkedList::new));
+
+            int max = getVal(dq);
+
+            for (int j = 1; j < n; j++) {
+                dq.addFirst(dq.removeLast());
+                max = Math.max(max, getVal(dq));
+            }
+
+            ans += max;
+        }
+
+        System.out.println(ans);
+    }
+
+    public static int getVal(LinkedList<Integer> dq) {
+        StringBuilder sb = new StringBuilder();
+        for (Integer v : dq) sb.append(v);
+        return Integer.parseInt(sb.toString(), 2);
+    }
 }

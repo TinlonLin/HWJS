@@ -1,5 +1,8 @@
 package com.example.algorithmdemo.a0630.b100分复用题122;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * @author: TinlonLin
  * @email: tilolin@qq.com
@@ -31,49 +34,104 @@ aaa_password_"a12_45678"_timeout__100_""_
 输出
 aaa_password_******_timeout_100_""
 
-
-public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
-
-int k = Integer.parseInt(sc.nextLine());
-String s = sc.nextLine();
-
-System.out.println(getResult(k, s));
-}
-
-public static String getResult(int k, String s) {
-StringBuilder stack = new StringBuilder();
-LinkedList<String> result = new LinkedList<>();
-
-for (int i = 0; i < s.length(); i++) {
-char c = s.charAt(i);
-
-if (c == '_' && (stack.length() == 0 || stack.charAt(0) != '"')) {
-result.add(stack.toString());
-stack = new StringBuilder();
-} else if (c == '"' && stack.length() != 0) {
-stack.append('"');
-result.add(stack.toString());
-stack = new StringBuilder();
-} else {
-stack.append(c);
-}
-}
-
-if (stack.length() > 0) result.add(stack.toString());
-
-List<String> ans = result.stream().filter(str -> !"".equals(str)).collect(Collectors.toList());
-
-if (k > ans.size() - 1) return "ERROR";
-ans.set(k, "******");
-
-StringJoiner sj = new StringJoiner("_");
-for (String an : ans) sj.add(an);
-return sj.toString();
-}
-
  * @date: 2023/6/4 8:45
  * @version: V-1.0
  */
 public class b1敏感字段加密_100_字符串数组集合操作 {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        int k = Integer.parseInt(sc.nextLine());
+//        String s = sc.nextLine();
+//        System.out.println(getResult(k, s));
+//    }
+//
+//    public static String getResult(int k, String s) {
+//        StringBuilder stack = new StringBuilder();
+//        LinkedList<String> result = new LinkedList<>();
+//
+//        for (int i = 0; i < s.length(); i++) {
+//            char c = s.charAt(i);
+//            if (c == '_' && (stack.length() == 0 || stack.charAt(0) != '"')) {
+//                result.add(stack.toString());
+//                stack = new StringBuilder();
+//            } else if (c == '"' && stack.length() != 0) {
+//                stack.append('"');
+//                result.add(stack.toString());
+//                stack = new StringBuilder();
+//            } else {
+//                stack.append(c);
+//            }
+//        }
+//
+//        if (stack.length() > 0) {
+//            result.add(stack.toString());
+//        }
+//
+//        List<String> ans = result.stream().filter(str -> !"".equals(str)).collect(Collectors.toList());
+//
+//        if (k > ans.size() - 1) return "ERROR";
+//        ans.set(k, "******");
+//
+//        StringJoiner sj = new StringJoiner("_");
+//        for (String an : ans) {
+//            sj.add(an);
+//        }
+//        return sj.toString();
+//    }
+
+        public static void main(String[] args) {
+
+            Scanner sc = new Scanner(System.in);
+            int n = Integer.parseInt(sc.nextLine());
+            String s = sc.nextLine();
+            int len = s.length();
+            List<String> list = new ArrayList<>();
+
+            String temp = "";
+            //是否有引号
+            boolean yh = false;
+            for(int i=0;i<len;i++){
+                if(s.charAt(i)!='_'){
+                    if(s.charAt(i)=='\"'){
+                        yh = !yh;
+                    }
+                    //非下划线直接拼接字符
+                    temp+=s.charAt(i);
+                    if(i==len-1){
+                        //最后一位直接push
+                        list.add(temp);
+                    }
+                }else {
+                    if(temp==""){
+                        //字符串为空则进入下个循环
+                        continue;
+                    }
+                    if(yh){
+                        //引号内的下划线直接拼接字符串
+                        temp+=s.charAt(i);
+                    }else {
+                        list.add(temp); //push字符串
+                        temp = "";  //置空为下次使用
+                    }
+                }
+            }
+            int count = list.size();
+            if(n>=count){
+                System.out.println("ERROR");
+            }else {
+                String res = "";
+                for(int i=0;i<count;i++){
+                    if(i==n){
+                        res+="******";  //对应下标的字符串进行加密
+                    }else {
+                        res+=list.get(i);   //拼接字符串
+                    }
+                    if(i!=list.size()-1){
+                        res+="_";   //非最后一个后面需要加下划线
+                    }
+                }
+                System.out.println(res);
+            }
+        }
+
 }

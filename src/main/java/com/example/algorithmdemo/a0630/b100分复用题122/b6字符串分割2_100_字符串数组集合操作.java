@@ -1,5 +1,8 @@
 package com.example.algorithmdemo.a0630.b100分复用题122;
 
+import java.util.Scanner;
+import java.util.StringJoiner;
+
 /**
  * @author: TinlonLin
  * @email: tilolin@qq.com
@@ -40,57 +43,62 @@ ABc中大写字母较多，转换为ABC，
 这个子串中大小写字母都为4个，不做转换，
 连起来即12abc-abCABc4aB@
 
-
-static int[] fact;
-
-public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
-
-int k = sc.nextInt();
-String s = sc.next();
-
-System.out.println(getResult(k, s));
-}
-
-public static String getResult(int k, String s) {
-String[] arr = s.split("-");
-
-// 第一个子串不做处理
-StringJoiner sj = new StringJoiner("-");
-//    sj.add(convert(arr[0])); // 看用例说明，对应第一个子串是不需要做大小写转换的，但是也拿不准，考试时可以都试下
-sj.add(arr[0]);
-
-// 剩余子串重新合并为一个新字符串，每k个字符一组
-StringBuilder sb = new StringBuilder();
-for (int i = 1; i < arr.length; i++) sb.append(arr[i]);
-String newStr = sb.toString();
-
-for (int i = 0; i < newStr.length(); i += k) {
-String subStr = newStr.substring(i, Math.min(i + k, newStr.length()));
-// 子串中小写字母居多，则整体转为小写字母，大写字母居多，则整体转为大写字母
-sj.add(convert(subStr));
-}
-
-return sj.toString();
-}
-
-public static String convert(String str) {
-int lowerCount = 0;
-int upperCount = 0;
-
-for (int i = 0; i < str.length(); i++) {
-char c = str.charAt(i);
-if (c >= 'a' && c <= 'z') lowerCount++;
-else if (c >= 'A' && c <= 'Z') upperCount++;
-}
-
-if (lowerCount > upperCount) return str.toLowerCase();
-else if (lowerCount < upperCount) return str.toUpperCase();
-else return str;
-}
-
  * @date: 2023/6/4 8:47
  * @version: V-1.0
  */
 public class b6字符串分割2_100_字符串数组集合操作 {
+    static int[] fact;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int k = Integer.parseInt(sc.nextLine());
+        String s = sc.nextLine();
+
+        System.out.println(getResult(k, s));
+    }
+
+    public static String getResult(int k, String s) {
+        String[] arr = s.split("-");
+
+        // 第一个子串不做处理
+        StringJoiner sj = new StringJoiner("-");
+        // sj.add(convert(arr[0])); // 看用例说明，对应第一个子串是不需要做大小写转换的，但是也拿不准，考试时可以都试下
+        sj.add(arr[0]);
+
+        // 剩余子串重新合并为一个新字符串，每k个字符一组
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < arr.length; i++) sb.append(arr[i]);
+        String newStr = sb.toString();
+
+        for (int i = 0; i < newStr.length(); i += k) {
+            String subStr = newStr.substring(i, Math.min(i + k, newStr.length()));
+            // 子串中小写字母居多，则整体转为小写字母，大写字母居多，则整体转为大写字母
+            sj.add(convert(subStr));
+        }
+
+        return sj.toString();
+    }
+
+    public static String convert(String str) {
+        int lowerCount = 0;
+        int upperCount = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c >= 'a' && c <= 'z') {
+                lowerCount++;
+            } else if (c >= 'A' && c <= 'Z') {
+                upperCount++;
+            }
+        }
+
+        if (lowerCount > upperCount) {
+            return str.toLowerCase();
+        } else if (lowerCount < upperCount) {
+            return str.toUpperCase();
+        } else {
+            return str;
+        }
+    }
 }

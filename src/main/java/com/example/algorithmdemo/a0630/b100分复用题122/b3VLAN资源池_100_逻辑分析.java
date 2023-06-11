@@ -1,5 +1,11 @@
 package com.example.algorithmdemo.a0630.b100分复用题122;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
+
 /**
  * @author: TinlonLin
  * @email: tilolin@qq.com
@@ -45,74 +51,75 @@ VLAN是一种对局域网设备进行逻辑划分的技术，为了标识不同�
 说明
 原VLAN资源池中有VLAN 1、2、3，5，申请的VLAN 10不在原资源池中，将原资源池按照题目描述格式并按升序排序后输出的结果为1-3,5。
 
-public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
-
-String[] vlanArr = sc.nextLine().split(",");
-int remove = Integer.parseInt(sc.nextLine());
-
-System.out.println(getResult(vlanArr, remove));
-}
-
-public static String getResult(String[] vlanArr, int remove) {
-LinkedList<Integer[]> vlanList =
-Arrays.stream(vlanArr)
-.map(v -> Arrays.stream(v.split("-")).map(Integer::parseInt).toArray(Integer[]::new))
-.sorted((a, b) -> a[0] - b[0])
-.collect(Collectors.toCollection(LinkedList::new));
-
-for (int i = 0; i < vlanList.size(); i++) {
-Integer[] vlan = vlanList.get(i);
-
-int from = vlan[0];
-
-if (vlan.length > 1) {
-int to = vlan[1];
-
-if (remove < from || remove > to) continue;
-
-vlanList.remove(i);
-
-if (remove == from) {
-vlanList.add(i, generateRange(remove + 1, to));
-} else if (remove == to) {
-vlanList.add(i, generateRange(from, remove - 1));
-} else {
-vlanList.add(i, generateRange(remove + 1, to));
-vlanList.add(i, generateRange(from, remove - 1));
-}
-
-break;
-} else if (from == remove) {
-vlanList.remove(i);
-break;
-}
-}
-
-StringJoiner ans = new StringJoiner(",");
-
-vlanList.stream()
-.map(
-vlan -> {
-StringJoiner sj = new StringJoiner("-");
-for (Integer v : vlan) sj.add(v + "");
-return sj.toString();
-})
-.forEach(ans::add);
-
-return ans.toString();
-}
-
-public static Integer[] generateRange(int from, int to) {
-if (from < to) {
-return new Integer[] {from, to};
-} else {
-return new Integer[] {from};
-}
-}
-
  * @date: 2023/6/4 8:46
  * @version: V-1.0
  */
 public class b3VLAN资源池_100_逻辑分析 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] vlanArr = sc.nextLine().split(",");
+        int remove = Integer.parseInt(sc.nextLine());
+
+        System.out.println(getResult(vlanArr, remove));
+    }
+
+    public static String getResult(String[] vlanArr, int remove) {
+        LinkedList<Integer[]> vlanList =
+                Arrays.stream(vlanArr)
+                        .map(v -> Arrays.stream(v.split("-")).map(Integer::parseInt).toArray(Integer[]::new))
+                        .sorted((a, b) -> a[0] - b[0])
+                        .collect(Collectors.toCollection(LinkedList::new));
+
+        for (int i = 0; i < vlanList.size(); i++) {
+            Integer[] vlan = vlanList.get(i);
+
+            int from = vlan[0];
+
+            if (vlan.length > 1) {
+                int to = vlan[1];
+
+                if (remove < from || remove > to) {
+                    continue;
+                }
+
+                vlanList.remove(i);
+
+                if (remove == from) {
+                    vlanList.add(i, generateRange(remove + 1, to));
+                } else if (remove == to) {
+                    vlanList.add(i, generateRange(from, remove - 1));
+                } else {
+                    vlanList.add(i, generateRange(remove + 1, to));
+                    vlanList.add(i, generateRange(from, remove - 1));
+                }
+                break;
+            } else if (from == remove) {
+                vlanList.remove(i);
+                break;
+            }
+        }
+
+        StringJoiner ans = new StringJoiner(",");
+
+        vlanList.stream()
+                .map(
+                        vlan -> {
+                            StringJoiner sj = new StringJoiner("-");
+                            for (Integer v : vlan) {
+                                sj.add(v + "");
+                            }
+                            return sj.toString();
+                        })
+                .forEach(ans::add);
+        return ans.toString();
+    }
+
+    public static Integer[] generateRange(int from, int to) {
+        if (from < to) {
+            return new Integer[] {from, to};
+        } else {
+            return new Integer[] {from};
+        }
+    }
 }

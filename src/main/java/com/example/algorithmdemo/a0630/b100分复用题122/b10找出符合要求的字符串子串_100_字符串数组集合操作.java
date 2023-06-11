@@ -1,5 +1,9 @@
 package com.example.algorithmdemo.a0630.b100分复用题122;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Scanner;
+
 /**
  * @author: TinlonLin
  * @email: tilolin@qq.com
@@ -28,34 +32,38 @@ bbaaccedfg
 输出
 acf
 
-
-public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
-
-String s1 = sc.next();
-String s2 = sc.next();
-
-System.out.println(getResult(s1, s2));
-}
-
-public static String getResult(String s1, String s2) {
-HashSet<Character> set1 = new HashSet<>();
-for (char c : s1.toCharArray()) set1.add(c);
-
-HashSet<Character> set2 = new HashSet<>();
-for (char c : s2.toCharArray()) set2.add(c);
-
-Character[] characters = set1.stream().filter(c -> set2.contains(c)).toArray(Character[]::new);
-Arrays.sort(characters);
-
-StringBuilder sb = new StringBuilder();
-for (Character c : characters) sb.append(c);
-
-return sb.toString();
-}
-
  * @date: 2023/6/4 8:49
  * @version: V-1.0
  */
 public class b10找出符合要求的字符串子串_100_字符串数组集合操作 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+
+        System.out.println(getResult(s1, s2));
+    }
+
+    public static String getResult(String s1, String s2) {
+        HashSet<Character> set1 = new HashSet<>();
+        for (char c : s1.toCharArray()) {
+            set1.add(c);
+        }
+
+        HashSet<Character> set2 = new HashSet<>();
+        for (char c : s2.toCharArray()) {
+            set2.add(c);
+        }
+
+        Character[] characters = set1.stream().filter(c -> set2.contains(c)).toArray(Character[]::new);
+        Arrays.sort(characters);
+
+        StringBuilder sb = new StringBuilder();
+        for (Character c : characters) {
+            sb.append(c);
+        }
+
+        return sb.toString();
+    }
 }
