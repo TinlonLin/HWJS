@@ -64,7 +64,7 @@ public class b3VLAN资源池_100_逻辑分析 {
         System.out.println(getResult(vlanArr, remove));
     }
 
-    public static String getResult(String[] vlanArr, int remove) {
+    private static String getResult(String[] vlanArr, int remove) {
         LinkedList<Integer[]> vlanList =
                 Arrays.stream(vlanArr)
                         .map(v -> Arrays.stream(v.split("-")).map(Integer::parseInt).toArray(Integer[]::new))
@@ -115,7 +115,7 @@ public class b3VLAN资源池_100_逻辑分析 {
         return ans.toString();
     }
 
-    public static Integer[] generateRange(int from, int to) {
+    private static Integer[] generateRange(int from, int to) {
         if (from < to) {
             return new Integer[] {from, to};
         } else {

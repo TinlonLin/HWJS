@@ -91,7 +91,7 @@ public class b5求满足条件的最长子串的长度_100_滑动窗口 {
         return maxLen;
     }
 
-    public static boolean isLetter(char c) {
+    private static boolean isLetter(char c) {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
     }
 }

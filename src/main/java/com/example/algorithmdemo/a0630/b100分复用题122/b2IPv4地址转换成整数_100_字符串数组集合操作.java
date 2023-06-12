@@ -41,7 +41,7 @@ public class b2IPv4地址转换成整数_100_字符串数组集合操作 {
         System.out.println(getResult(sc.nextLine()));
     }
 
-    public static String getResult(String s) {
+    private static String getResult(String s) {
         String[] ip = s.split("#");
 
         // ip地址由四部分组成，少于或多于四部分都不合法
@@ -65,7 +65,7 @@ public class b2IPv4地址转换成整数_100_字符串数组集合操作 {
     }
 
     // ip组成是否合法
-    public static boolean isValid(String s, int from, int to) {
+    private static boolean isValid(String s, int from, int to) {
         // 如果包含非数字字符，则不合法
         if (!s.matches("^\\d+$")) {
             return false;
@@ -82,7 +82,7 @@ public class b2IPv4地址转换成整数_100_字符串数组集合操作 {
     }
 
     // 获取十进制数字符串对应的十六进制数字符串
-    public static String getHexString(String num) {
+    private static String getHexString(String num) {
         String hexStr = Integer.toHexString(Integer.parseInt(num));
         // 补足前导0
         if (hexStr.length() < 2) {

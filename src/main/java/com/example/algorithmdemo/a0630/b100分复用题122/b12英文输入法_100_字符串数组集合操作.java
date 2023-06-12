@@ -23,7 +23,7 @@ public class b12英文输入法_100_字符串数组集合操作 {
         System.out.println(getResult(str, pre));
     }
 
-    public static String getResult(String str, String pre) {
+    private static String getResult(String str, String pre) {
         String[] tmp = str.split("[^a-zA-Z]");
         TreeSet<String> cache = new TreeSet<>();
         Collections.addAll(cache, tmp);

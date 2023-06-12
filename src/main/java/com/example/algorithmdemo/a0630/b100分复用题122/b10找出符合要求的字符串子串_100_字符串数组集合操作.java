@@ -45,7 +45,7 @@ public class b10找出符合要求的字符串子串_100_字符串数组集合�
         System.out.println(getResult(s1, s2));
     }
 
-    public static String getResult(String s1, String s2) {
+    private static String getResult(String s1, String s2) {
         HashSet<Character> set1 = new HashSet<>();
         for (char c : s1.toCharArray()) {
             set1.add(c);

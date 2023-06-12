@@ -81,7 +81,7 @@ public class b78判断一组不等式是否满足约束并输出最大差_100_�
         System.out.println(flag + " " + (int) maxDiff);
     }
 
-    public static boolean compareWithZero(double val, String constraint) {
+    private static boolean compareWithZero(double val, String constraint) {
         boolean flag = false;
 
         switch (constraint) {

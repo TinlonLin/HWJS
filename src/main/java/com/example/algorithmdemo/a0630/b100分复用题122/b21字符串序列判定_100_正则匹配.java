@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @classname: b21字符串序列判定_100_正则匹配
  * @desc: Todo
  * https://fcqian.blog.csdn.net/article/details/127228559
- *
+
  * @date: 2023/6/4 8:53
  * @version: V-1.0
  */
@@ -22,7 +22,7 @@ public class b21字符串序列判定_100_正则匹配 {
         System.out.println(getResult(s, l));
     }
 
-    public static int getResult(String s, String l) {
+    private static int getResult(String s, String l) {
         int i = 0;
         int j = 0;
 
@@ -35,6 +35,8 @@ public class b21字符串序列判定_100_正则匹配 {
 
         if (i == s.length()) {
             return j - 1;
-        } else return -1;
+        } else {
+            return -1;
+        }
     }
 }

@@ -44,7 +44,7 @@ public class b11字符串加密_100_动态规划 {
         }
     }
 
-    public static String getResult(String str) {
+    private static String getResult(String str) {
         int n = str.length();
 
         // 初始化a数组
@@ -64,7 +64,7 @@ public class b11字符串加密_100_动态规划 {
             }
         }
 
-// 为字符串的每一位字符添加a[i]偏移量
+        // 为字符串的每一位字符添加a[i]偏移量
         char[] cArr = str.toCharArray();
         for (int i = 0; i < n; i++) {
             cArr[i] = (char) ((a[i] + cArr[i] - 97) % 26 + 97);

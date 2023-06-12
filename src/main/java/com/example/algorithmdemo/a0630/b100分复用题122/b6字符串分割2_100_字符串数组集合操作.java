@@ -58,7 +58,7 @@ public class b6字符串分割2_100_字符串数组集合操作 {
         System.out.println(getResult(k, s));
     }
 
-    public static String getResult(int k, String s) {
+    private static String getResult(int k, String s) {
         String[] arr = s.split("-");
 
         // 第一个子串不做处理
@@ -68,7 +68,9 @@ public class b6字符串分割2_100_字符串数组集合操作 {
 
         // 剩余子串重新合并为一个新字符串，每k个字符一组
         StringBuilder sb = new StringBuilder();
-        for (int i = 1; i < arr.length; i++) sb.append(arr[i]);
+        for (int i = 1; i < arr.length; i++) {
+            sb.append(arr[i]);
+        }
         String newStr = sb.toString();
 
         for (int i = 0; i < newStr.length(); i += k) {
@@ -80,7 +82,7 @@ public class b6字符串分割2_100_字符串数组集合操作 {
         return sj.toString();
     }
 
-    public static String convert(String str) {
+    private static String convert(String str) {
         int lowerCount = 0;
         int upperCount = 0;
 

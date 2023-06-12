@@ -74,7 +74,7 @@ public class b9单词接龙_100_字符串数组集合操作 {
         System.out.println(getResult(k, n, words));
     }
 
-    public static String getResult(int k, int n, String[] words) {
+    private static String getResult(int k, int n, String[] words) {
         ArrayList<String> chain = new ArrayList<>();
         chain.add(words[k]);
 

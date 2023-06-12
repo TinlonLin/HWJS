@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @classname: b18非严格递增连续数字序列_100_双指针
  * @desc: Todo
  * https://fcqian.blog.csdn.net/article/details/127418433
- *
+
  * @date: 2023/6/4 8:52
  * @version: V-1.0
  */
@@ -21,7 +21,7 @@ public class b18非严格递增连续数字序列_100_双指针 {
         System.out.println(getResult(s));
     }
 
-    public static int getResult(String s) {
+    private static int getResult(String s) {
         int l = 0;
         int r = 0;
         int maxLen = 0;

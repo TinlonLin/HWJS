@@ -10,7 +10,7 @@ import java.util.Scanner;
  * @classname: b16连续字母长度_100_正则匹配
  * @desc: Todo
  * https://fcqian.blog.csdn.net/article/details/127238467
- *
+
  * @date: 2023/6/4 8:51
  * @version: V-1.0
  */
@@ -22,7 +22,7 @@ public class b16连续字母长度_100_正则匹配 {
         System.out.println(getResult(s, k));
     }
 
-    public static int getResult(String s, int k) {
+    private static int getResult(String s, int k) {
         s += "0";
 
         HashMap<Character, Integer> count = new HashMap<>();

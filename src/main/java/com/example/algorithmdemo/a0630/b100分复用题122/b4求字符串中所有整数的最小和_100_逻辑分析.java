@@ -43,7 +43,7 @@ public class b4求字符串中所有整数的最小和_100_逻辑分析 {
         System.out.println(getResult(sc.nextLine()));
     }
 
-    public static String getResult(String s) {
+    private static String getResult(String s) {
         boolean isNegative = false;
         StringBuilder negative = new StringBuilder();
 

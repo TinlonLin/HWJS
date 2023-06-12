@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * @classname: b19相对开音节_100_正则匹配
  * @desc: Todo
  * https://fcqian.blog.csdn.net/article/details/127202697
- *
+
  * @date: 2023/6/4 8:53
  * @version: V-1.0
  */
@@ -20,7 +20,7 @@ public class b19相对开音节_100_正则匹配 {
         System.out.println(getResult(words));
     }
 
-    public static int getResult(String[] words) {
+    private static int getResult(String[] words) {
         int count = 0;
 
         Pattern nonLetter = Pattern.compile("[^a-z]");

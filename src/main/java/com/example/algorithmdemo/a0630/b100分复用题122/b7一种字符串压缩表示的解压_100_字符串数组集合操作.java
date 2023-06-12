@@ -54,7 +54,7 @@ public class b7一种字符串压缩表示的解压_100_字符串数组集合操
         System.out.println(getResult(sc.next()));
     }
 
-    public static String getResult(String str) {
+    private static String getResult(String str) {
         String back_str = str;
 
         // 压缩字符串str只能包含小写字母和数字 ，如果包含其他字符则非法
@@ -104,7 +104,7 @@ public class b7一种字符串压缩表示的解压_100_字符串数组集合操
         return str;
     }
 
-    public static String zip(String str) {
+    private static String zip(String str) {
         str += "-";
 
         StringBuilder ans = new StringBuilder();

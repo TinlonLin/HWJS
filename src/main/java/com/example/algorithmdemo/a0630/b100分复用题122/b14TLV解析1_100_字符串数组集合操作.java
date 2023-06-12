@@ -10,7 +10,7 @@ import java.util.StringJoiner;
  * @classname: b14TLV解析1_100_字符串数组集合操作
  * @desc: Todo
  * https://fcqian.blog.csdn.net/article/details/127944457
- *
+
  * @date: 2023/6/4 8:50
  * @version: V-1.0
  */
@@ -24,7 +24,7 @@ public class b14TLV解析1_100_字符串数组集合操作 {
         System.out.println(getResult(stream, target));
     }
 
-    public static String getResult(String[] stream, String target) {
+    private static String getResult(String[] stream, String target) {
         int i = 0;
 
         while (i < stream.length) {

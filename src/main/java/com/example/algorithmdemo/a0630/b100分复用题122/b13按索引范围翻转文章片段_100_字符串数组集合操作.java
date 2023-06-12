@@ -9,7 +9,7 @@ import java.util.StringJoiner;
  * @classname: b13按索引范围翻转文章片段_100_字符串数组集合操作
  * @desc: Todo
  * https://fcqian.blog.csdn.net/article/details/127944343
- *
+
  * @date: 2023/6/4 8:50
  * @version: V-1.0
  */
@@ -22,7 +22,7 @@ public class b13按索引范围翻转文章片段_100_字符串数组集合操�
         System.out.println(getResult(s, startIndex, endIndex));
     }
 
-    public static String getResult(String s, int startIndex, int endIndex) {
+    private static String getResult(String s, int startIndex, int endIndex) {
         String[] sArr = s.split(" ");
 
         startIndex = Math.min(Math.max(0, startIndex), sArr.length - 1);

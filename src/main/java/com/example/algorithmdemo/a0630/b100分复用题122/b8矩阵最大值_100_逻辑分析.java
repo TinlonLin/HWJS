@@ -72,9 +72,11 @@ public class b8矩阵最大值_100_逻辑分析 {
         System.out.println(ans);
     }
 
-    public static int getVal(LinkedList<Integer> dq) {
+    private static int getVal(LinkedList<Integer> dq) {
         StringBuilder sb = new StringBuilder();
-        for (Integer v : dq) sb.append(v);
+        for (Integer v : dq) {
+            sb.append(v);
+        }
         return Integer.parseInt(sb.toString(), 2);
     }
 }
