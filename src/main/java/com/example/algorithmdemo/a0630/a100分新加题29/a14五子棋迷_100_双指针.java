@@ -1,5 +1,6 @@
 package com.example.algorithmdemo.a0630.a100分新加题29;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 

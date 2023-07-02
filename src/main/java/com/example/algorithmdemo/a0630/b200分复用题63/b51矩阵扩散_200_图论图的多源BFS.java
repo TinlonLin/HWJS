@@ -1,6 +1,8 @@
 package com.example.algorithmdemo.a0630.b200分复用题63;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 /**
  * @author: TinlonLin
